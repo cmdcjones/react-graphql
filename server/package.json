@@ -5,7 +5,7 @@
   "description": "A React application using a GraphQL API and Prisma (PostgreSQL) on the backend.",
   "type": "module",
   "scripts": {
-      "dev": "ts-node-dev src/index.ts"
+      "dev": "ts-node-esm src/index.ts"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
