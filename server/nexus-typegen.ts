@@ -51,7 +51,7 @@ export interface NexusGenFieldTypes {
     id: number | null; // Int
   }
   Query: { // field return type
-    ok: boolean; // Boolean!
+    hello: Array<NexusGenRootTypes['Message'] | null>; // [Message]!
   }
 }
 
@@ -61,7 +61,7 @@ export interface NexusGenFieldTypeNames {
     id: 'Int'
   }
   Query: { // field return type name
-    ok: 'Boolean'
+    hello: 'Message'
   }
 }
 

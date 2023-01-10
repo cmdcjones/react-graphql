@@ -8,5 +8,5 @@ type Message {
 }
 
 type Query {
-  ok: Boolean!
+  hello: [Message]!
 }
