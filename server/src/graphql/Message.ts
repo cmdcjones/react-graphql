@@ -14,17 +14,8 @@ export const MessageQuery = extendType({
         t.nonNull.list.field("hello", {
             type: "Message",
 
-            resolve () {
-                return [
-                    {
-                        id: 1,
-                        body: "hello there",
-                    },
-                    {
-                        id: 2,
-                        body: "goodbye here",
-                    },
-                ];
+            resolve (_root, _args, ctx) {
+                return ctx.db.messages.filter(msg => msg.body === "goodbye here");
             },
         });
     },
