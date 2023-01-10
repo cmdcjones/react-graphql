@@ -3,6 +3,7 @@ import { makeSchema } from "nexus";
 import { join } from "path";
 import * as types from "./index.js";
 
+// Create a 'source of truth' schema use declarative functions from nexus
 export const schema = makeSchema({
     types,
     outputs: {
