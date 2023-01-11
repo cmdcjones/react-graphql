@@ -8,6 +8,7 @@ export interface Message {
 export interface User {
     id: number
     name: string
+    messages: Message[]
 }
 
 // How the data in Db should be formatted, accepted, and interacted with
@@ -20,5 +21,26 @@ export interface Db {
 // an array containing data of type Message
 export const db: Db = {
     messages: [{ id: 1, body: "hello there", }, { id: 2, body: "goodbye here", }],
-    users: [{ id: 1, name: "Dom" }, { id: 2, name: "Test" }],
+    users: [
+        {
+            id: 1, 
+            name: "Dom",
+            messages: [
+                {
+                    id: 1,
+                    body: "dom's message",
+                },
+            ],
+        }, 
+        {
+            id: 2, 
+            name: "Test",
+            messages: [
+                {
+                    id: 1,
+                    body: "test's message",
+                },
+            ],
+        },
+    ],
 };
