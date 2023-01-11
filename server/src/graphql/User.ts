@@ -58,7 +58,7 @@ export const UserMutation = extendType({
 
             resolve(_parent, args, ctx) {
                 const user = {
-                    id: Math.floor(Math.random() * 100),
+                    id: Math.floor(Math.random() * 100), // pseudo ID
                     name: args.name,
                 }
 
