@@ -1,4 +1,4 @@
-import { extendType, intArg, nonNull, objectType } from "nexus";
+import { extendType, intArg, nonNull, objectType, stringArg } from "nexus";
 
 // Create the shape of type User that defines
 // what fields each User contains, what can be interacted with
@@ -8,18 +8,17 @@ export const User = objectType({
     definition(t) {
         t.int("id");
         t.string("name");
-        t.nonNull.list.nonNull.field("messages", {
+        /*t.nonNull.list.nonNull.field("messages", {
             type: "Message",
 
-            resolve (parent, args, ctx) {
+            resolve (_parent, _args, ctx) {
                 return ctx.db.users.messages
             },
-        });
+        });*/
     },
 });
 
-// Create a root field 'users' that extends Query
-// and resolves a list of type User (specifically [User]!)
+// Query root fields for User
 export const UserQuery = extendType({
     type: "Query",
     definition(t) {
@@ -29,7 +28,7 @@ export const UserQuery = extendType({
                 id: nonNull(intArg()),
             },
 
-            resolve(parent, args, ctx) {
+            resolve(_parent, args, ctx) {
                 const { id } = args;
                 const requestedUser = ctx.db.users.find(user => user.id === id);
 
@@ -40,10 +39,26 @@ export const UserQuery = extendType({
         t.nonNull.list.field("users", {
             type: "User",
 
-            resolve(parent, args, ctx) {
+            resolve(_parent, _args, ctx) {
                 return ctx.db.users
             },
         });
     },
 });
 
+// Mutation root fields for User
+export const UserMutation = extendType({
+    type: "Mutation",
+    definition(t) {
+        t.nonNull.field("createUser", {
+            type: "User",
+            args: {
+                name: nonNull(stringArg()),
+            },
+
+            resolve(_parent, args, ctx) {
+
+            }
+        },
+    },
+});

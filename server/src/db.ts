@@ -8,7 +8,7 @@ export interface Message {
 export interface User {
     id: number
     name: string
-    messages: Message[]
+    // messages: Message[]
 }
 
 // How the data in Db should be formatted, accepted, and interacted with
@@ -25,22 +25,22 @@ export const db: Db = {
         {
             id: 1, 
             name: "Dom",
-            messages: [
-                {
-                    id: 1,
-                    body: "dom's message",
-                },
-            ],
+            // messages: [
+            //     {
+            //         id: 1,
+            //         body: "dom's message",
+            //     },
+            // ],
         }, 
         {
             id: 2, 
             name: "Test",
-            messages: [
-                {
-                    id: 1,
-                    body: "test's message",
-                },
-            ],
+            // messages: [
+            //     {
+            //         id: 1,
+            //         body: "test's message",
+            //     },
+            // ],
         },
     ],
 };
