@@ -8,5 +8,12 @@ type Message {
 }
 
 type Query {
-  hello: [Message]!
+  messages: [Message]!
+  users: [User]!
+}
+
+type User {
+  id: Int
+  messages: [Message!]!
+  name: String
 }

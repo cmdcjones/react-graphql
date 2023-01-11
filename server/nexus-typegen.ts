@@ -33,6 +33,10 @@ export interface NexusGenObjects {
     id?: number | null; // Int
   }
   Query: {};
+  User: { // root type
+    id?: number | null; // Int
+    name?: string | null; // String
+  }
 }
 
 export interface NexusGenInterfaces {
@@ -51,7 +55,13 @@ export interface NexusGenFieldTypes {
     id: number | null; // Int
   }
   Query: { // field return type
-    hello: Array<NexusGenRootTypes['Message'] | null>; // [Message]!
+    messages: Array<NexusGenRootTypes['Message'] | null>; // [Message]!
+    users: Array<NexusGenRootTypes['User'] | null>; // [User]!
+  }
+  User: { // field return type
+    id: number | null; // Int
+    messages: NexusGenRootTypes['Message'][]; // [Message!]!
+    name: string | null; // String
   }
 }
 
@@ -61,7 +71,13 @@ export interface NexusGenFieldTypeNames {
     id: 'Int'
   }
   Query: { // field return type name
-    hello: 'Message'
+    messages: 'Message'
+    users: 'User'
+  }
+  User: { // field return type name
+    id: 'Int'
+    messages: 'Message'
+    name: 'String'
   }
 }
 
