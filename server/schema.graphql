@@ -9,6 +9,7 @@ type Message {
 
 type Query {
   messages: [Message]!
+  user(id: Int!): User!
   users: [User]!
 }
 

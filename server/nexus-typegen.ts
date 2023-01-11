@@ -56,6 +56,7 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     messages: Array<NexusGenRootTypes['Message'] | null>; // [Message]!
+    user: NexusGenRootTypes['User']; // User!
     users: Array<NexusGenRootTypes['User'] | null>; // [User]!
   }
   User: { // field return type
@@ -72,6 +73,7 @@ export interface NexusGenFieldTypeNames {
   }
   Query: { // field return type name
     messages: 'Message'
+    user: 'User'
     users: 'User'
   }
   User: { // field return type name
@@ -82,6 +84,11 @@ export interface NexusGenFieldTypeNames {
 }
 
 export interface NexusGenArgTypes {
+  Query: {
+    user: { // args
+      id: number; // Int!
+    }
+  }
 }
 
 export interface NexusGenAbstractTypeMembers {
