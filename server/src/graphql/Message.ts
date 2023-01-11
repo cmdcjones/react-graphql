@@ -11,16 +11,16 @@ export const Message = objectType({
     },
 });
 
-// Create a root field 'hello' that extends Query
-// and resolves a type Message (specifically [Message]!)
+// Create a root field 'messages' that extends Query
+// and resolves a list of type Message (specifically [Message]!)
 export const MessageQuery = extendType({
     type: "Query",
     definition(t) {
-        t.nonNull.list.field("hello", {
+        t.nonNull.list.field("messages", {
             type: "Message",
 
             resolve (_root, _args, ctx) {
-                return ctx.db.messages.filter(msg => msg.body === "goodbye here");
+                return ctx.db.messages;
             },
         });
     },
