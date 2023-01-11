@@ -7,6 +7,10 @@ type Message {
   id: Int
 }
 
+type Mutation {
+  createUser(name: String!): User!
+}
+
 type Query {
   messages: [Message]!
   user(id: Int!): User!
@@ -15,6 +19,5 @@ type Query {
 
 type User {
   id: Int
-  messages: [Message!]!
   name: String
 }

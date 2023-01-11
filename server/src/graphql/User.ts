@@ -57,8 +57,14 @@ export const UserMutation = extendType({
             },
 
             resolve(_parent, args, ctx) {
+                const user = {
+                    id: Math.floor(Math.random() * 100),
+                    name: args.name,
+                }
 
+                ctx.db.users.push(user);
+                return user;
             }
-        },
+        });
     },
 });
