@@ -1,10 +1,10 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { schema } from "./graphql/schema.js";
-import { context } from "./context.js";
-import { PORT } from "./utils.js";
+import { schema } from "./graphql/schema";
+import { context } from "./context";
+import { PORT } from "./utils";
 
-const server = new ApolloServer({ 
+export const server = new ApolloServer({ 
     schema,
 });
 

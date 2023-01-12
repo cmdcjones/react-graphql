@@ -1,16 +1,22 @@
 {
   "compilerOptions": {
-      "target": "es2017",
-      "module": "esnext",
+      "target": "ESNext",
+      "module": "nodenext",
       "lib": ["es2020"],
+      "allowJs": false,
       "moduleResolution": "node",
       "esModuleInterop": true,
-      "types": ["node"],
+      "types": ["node", "jest"],
       "rootDirs": ["src"],
-      "outDir": "dist"
+      "allowSyntheticDefaultImports": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true
   },
   "ts-node": {
       "esm": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
